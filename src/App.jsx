@@ -17,7 +17,7 @@ function App() {
         'Did you sleep well?', 'How do you look today?', 'How was the movie which you saw recently?', 'Are you relaxed now?'
     ]
     useEffect(() => {
-        let temp_score = Math.round(senti.score / senti.count)
+        let temp_score = (senti.score / senti.count).toFixed(2)
         setScore(temp_score)
         if (temp_score == 69) {
             setEmoji("🥵")
