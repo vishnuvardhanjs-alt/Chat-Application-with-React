@@ -8,7 +8,7 @@ function App() {
     let sentiment = new Sentiment();
     const [text, setText] = useState("")
     const [msgs, setMsgs] = useState([])
-    const [senti, sentiFunc] = useReducer(updateSenti, { count: 0, score:0 });
+    const [senti, sentiFunc] = useReducer(updateSenti, { count: 0, score: 0 });
     const [emoji, setEmoji] = useState("")
     const [score, setScore] = useState(0)
 
@@ -48,18 +48,20 @@ function App() {
     }
 
     function handleSend() {
-        setMsgs([...msgs, { position: "right", text: text }])
-        let compScore = sentiment.analyze(text).comparative
-        sentiFunc(compScore)
-        setText("")
+        if (text !== "") {
+            setMsgs([...msgs, { position: "right", text: text }])
+            let compScore = sentiment.analyze(text).comparative
+            sentiFunc(compScore)
+            setText("")
+        }
     }
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-          event.preventDefault();
-          handleSend();
+            event.preventDefault();
+            handleSend();
         }
-      };
+    };
 
     return (
         <div className="main-cont">
@@ -84,7 +86,7 @@ function App() {
 
                 </div>
                 <div className="messageBox">
-                    <input required=""onKeyDown={handleKeyDown} onChange={(e) => { setText(e.target.value) }} value={text} placeholder="Message..." type="text" id="messageInput" />
+                    <input required="" onKeyDown={handleKeyDown} onChange={(e) => { setText(e.target.value) }} value={text} placeholder="Message..." type="text" id="messageInput" />
                     <button id="sendButton" type='submit'
                         onClick={() => { handleSend() }}>
                         Send
