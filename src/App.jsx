@@ -54,6 +54,13 @@ function App() {
         setText("")
     }
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          handleSend();
+        }
+      };
+
     return (
         <div className="main-cont">
             <div className="msg-view">
@@ -77,7 +84,7 @@ function App() {
 
                 </div>
                 <div className="messageBox">
-                    <input required="" onChange={(e) => { setText(e.target.value) }} value={text} placeholder="Message..." type="text" id="messageInput" />
+                    <input required=""onKeyDown={handleKeyDown} onChange={(e) => { setText(e.target.value) }} value={text} placeholder="Message..." type="text" id="messageInput" />
                     <button id="sendButton" type='submit'
                         onClick={() => { handleSend() }}>
                         Send
@@ -92,7 +99,7 @@ function App() {
                     </div>
                 ) : (
                     <div className='score-cont'>
-                        <p>Sentiment Score : 0</p>
+                        <p>Sentiment Score : 0.00</p>
                         <p className='emoji'>😐</p>
                     </div>
                 )}
