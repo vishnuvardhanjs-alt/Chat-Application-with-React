@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 .main-cont{
@@ -9,7 +10,19 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  
+  color: black;
+}
+
+.emoji{
+  font-size: 5em;
+}
+
+.score-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .msg-cont{
@@ -22,6 +35,16 @@
 .msg-view{
   height: 90%;
   width: 40%;
+  color: black;
+}
+
+.right-cont{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .send-btn{
@@ -67,5 +90,42 @@
   cursor: pointer;
   transition: all 0.3s;
   color: white;
+}
+p{
+  font-size: 5vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-cont{
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  .msg-view{
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .msg-cont{
+    height: 80vh;
+    width: 100%;
+  }
+
+  .messageBox{
+    height: 10vh;
+  }
+
+  .right-cont{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  p{font-size: 10vw;}
+
 }
 
